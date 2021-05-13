@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const fetchMovieInfoFromApi = async (url) => {
     url = url.replace(/^http:\/\//i, 'https://'); //Netlify issue for http links
-    console.log('url ', url)
     const movieInfo = await axios.get(url);
     return movieInfo && movieInfo.data;
 }
@@ -16,7 +15,6 @@ export const setMoviesList = moviesList => dispatch => {
 }
 
 export const setMovieInfo = movieInfo => dispatch => {
-    console.log('movieInfo ', movieInfo)
     return dispatch({
         type: SET_MOVIES_INFO,
         payload: movieInfo

@@ -46,10 +46,11 @@ const CharactersComponent = ({ setCharactersList, charactersList, setMoviesList,
                 const result = await fetchMovieInfoFromApi(url);
                 moviesList.push(result);
             }));
+            moviesList.sort((a, b) => a.release_date - a.release_date);
+            if(moviesList && moviesList.length) setMovieInfo(moviesList[moviesList.length -1])
         } 
         setIsFetching(false);
         setMoviesList(moviesList);
-        setMovieInfo('');
     }
     return (<div>
         <FormControl fullWidth className={classes.formControl}>
